@@ -6,18 +6,18 @@ Observations:
 
 * 'BloodPressure', 'SkinThickness', 'BMI', 'Insulin', 'Glucose' - have zeros which are actually missing data
 * 'Glucose', 'SkinThickness' - look like poisson distribution
-* 'Insulin', 'DiabetesPedigreeFunction' - look like exponential
+* 'DiabetesPedigreeFunction' - look like exponential
+* 'Insulin' should be skipped. 50% values are 0
 
 Methods:
 -------
 
-* replace missing values with median 
+* replace missing values with generated radom values from hist
 * poisson distribution can be reduced to gaussian by applying [Anscombe transform](https://en.wikipedia.org/wiki/Anscombe_transform)
-* exponential distribution I normalize with `log`. We are more interested in differences between low values than large.
+* exponential distribution transformed to gaussian by applying inverse distribution integral
 
 Ways to improve:
 ---------------
 
-* [Standardize exponential](https://stats.stackexchange.com/questions/154396/translate-exponential-distribution-into-normal-distribution)
-* [Standardize exponential 2](https://datascience.stackexchange.com/questions/18933/convert-exponential-to-normal-distribution)
-* Missing values: better would be to guess distribution and generate random values relying on it 
+* no idea how to deal with 'age' and 'pregnancies'. they are discrete + pregrnancies are sex dependent (so too many zeros)
+* might work for pregnancies to fit non-zero values and guess zeros for women => infer sex
