@@ -6,8 +6,9 @@ Observations:
 
 * 'BloodPressure', 'SkinThickness', 'BMI', 'Insulin', 'Glucose' - have zeros which are actually missing data
 * 'Glucose', 'SkinThickness' - look like poisson distribution
-* 'DiabetesPedigreeFunction' - look like exponential
+* 'DiabetesPedigreeFunction', 'Age'  - look like exponential
 * 'Insulin' should be skipped. 50% values are 0
+* all patients are women. [Kaggle dataset description](https://www.kaggle.com/uciml/pima-indians-diabetes-database)
 
 Methods:
 -------
@@ -19,5 +20,5 @@ Methods:
 Ways to improve:
 ---------------
 
-* no idea how to deal with 'age' and 'pregnancies'. they are discrete + pregrnancies are sex dependent (so too many zeros)
-* might work for pregnancies to fit non-zero values and guess zeros for women => infer sex
+* no idea how to deal with exponentially distributed data. any normalization?
+* analysis of data. pick more ideas from [here](https://easydsrp.com/posts/2018-11-06-diabetes-among-the-pima-indians-an-exploratory-analysis/)
